@@ -1,0 +1,25 @@
+specVersion: 0.0.1
+repository: https://github.com/DhruvJain1122/subgraphs/tree/master/subgraphs/curve
+schema:
+file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+  - name: MetaPool
+    network: mainnet
+    source:
+      address: "0xB9fC157394Af804a3578134A6585C0dc9cc990d4"
+      startBlock: "..."
+      abi: "./MetaPoolFactory.json"
+    mapping:
+      kind: ethereum/events
+      apiVersion: "... 0.0.6"
+      language: wasm/assemblyscript
+      entities:
+        - Pool
+      abis:
+        - name: MetaPoolFactory
+          file: ./abis/MetaPoolFactory.json
+        - name: ERC20
+          file: ./abis/ERC20Detailed.json
+      eventHandlers:
+        -event:
